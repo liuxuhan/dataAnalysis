@@ -1,10 +1,14 @@
+from __future__ import print_function
 from flask import Flask, request
+from sklearn.externals import joblib
 from flask_restful import Resource, Api
 from sqlalchemy import create_engine
-from json import dumps
+import json
 from flask.ext.jsonpify import jsonify
 from flask.ext.mysql import MySQL
 from flask_cors import CORS
+import numpy as np
+
 
 app = Flask(__name__)
 CORS(app)
@@ -37,7 +41,7 @@ def get():
             json_data=[]
             for result in rows:
                 json_data.append(dict(zip(row_headers,result)))
-            response = app.response_class(response= dumps(json_data), status=200, mimetype='application/json')
+            response = app.response_class(response= json.dumps(json_data), status=200, mimetype='application/json')
             return response
         return None
     finally:
@@ -46,18 +50,18 @@ def get():
 @app.route('/test', methods=['GET','POST'])
 def hello():
     if request.method == 'POST':
+        param_json = request.get_json()
+        print(type(param_json))
+        model = joblib.load('svr.pkl')
+        price = round(np.exp(model.predict(x.iloc[:1,1:])[0]),2)
         return "post request"
     return "Please Send post request"
-
+ 
 @app.route('/predict', methods=['GET','POST'])
 def predict():
-    if request.method == 'POST':
-        
+    if request.method == 'POST': 
         return "post request"
-    return "Please Send post request"
-    
-        
-            
+    return "Please Send post request"          
 if __name__ == '__main__':
      app.run(port='5002')
      

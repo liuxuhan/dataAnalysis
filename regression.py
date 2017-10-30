@@ -1,3 +1,4 @@
+from __future__ import print_function
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -55,7 +56,7 @@ if __name__ == "__main__":
     model = svr.fit(X_train, y_train)
     
     # store model file in server for other script
-    joblib.dump(model, 'svr.pkl') 
+    joblib.dump(model, 'svr_2.pkl') 
     
     # Calculate score on test dataset
     test_score = model.score(X_test, y_test)
