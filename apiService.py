@@ -8,6 +8,8 @@ from flask.ext.jsonpify import jsonify
 from flask.ext.mysql import MySQL
 from flask_cors import CORS
 import numpy as np
+import pandas as pd
+import dataClean
 
 
 app = Flask(__name__)
@@ -51,10 +53,12 @@ def get():
 def hello():
     if request.method == 'POST':
         param_json = request.get_json()
-        print(type(param_json))
         model = joblib.load('svr.pkl')
-        price = round(np.exp(model.predict(x.iloc[:1,1:])[0]),2)
-        return "post request"
+        raw_df = pd.DataFrame.from_dict(param_json,orient='index').transpose()
+        df = dataClean.clean_post_data(raw_df)
+        print(df)
+        price = round(np.exp(model.predict(df)[0]),2).astype(str)
+        return price
     return "Please Send post request"
  
 @app.route('/predict', methods=['GET','POST'])
