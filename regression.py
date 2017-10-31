@@ -68,7 +68,7 @@ if __name__ == "__main__":
     model = gb.fit(X_train, y_train)
 
     # store model file in server for other script
-    #joblib.dump(model, 'gb.pkl')
+    joblib.dump(model, 'gb2.pkl')
 
     # Calculate score on test dataset
     test_score = model.score(X_test, y_test)
