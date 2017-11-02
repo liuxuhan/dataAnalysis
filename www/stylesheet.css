@@ -34,8 +34,28 @@ div.alert-danger {
 	margin-bottom: 10px;
 }
 
-.mertic {
+.fix-panel {
 	position: fixed;
 	right: 150px;
 	top: 300px;
+}
+
+#india {
+	fill: #008000;
+	opacity: .8;
+	stroke: #000000;
+	stroke-width: .7;
+	}
+
+div.mapPage{
+	height:auto;
+	width: 550px;
+	margin-top: 4px;
+}
+div.jsmaps-wrapper{
+	margin-left: 130px;
+}
+ul#distrochart-pannel-list-group{
+	width:220px;
+	text-align: center;
 }

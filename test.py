@@ -1,3 +1,3 @@
 import dataClean
 
-dataClean.store_all_km_year()
+dataClean.create_dstinct_data()

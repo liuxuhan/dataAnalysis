@@ -9,6 +9,9 @@
     crossorigin="anonymous">
   <link rel="stylesheet" href="stylesheet.css">
   <link rel="stylesheet" type="text/css" href="distrochart.css">
+  <link href="jsmaps/jsmaps.css" rel="stylesheet" type="text/css" />
+  <!-- <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet" type="text/css" /> -->
 </head>
 
 <body>
@@ -30,9 +33,6 @@
               <input onfocusout="validate()" type="number" class="form-control" id="inputYear" placeholder="2012">
             </div>
           </div>
-          <div class="alert alert-danger" role="alert">
-            If leave it blank, average value will be used to calculate
-          </div>
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inputModel">Car Model</label>
@@ -41,6 +41,8 @@
                 <option>Fortuner</option>
                 <option>Corolla Altis</option>
                 <option>Etios</option>
+                <option>Etios Liva</option>
+                <option>Corolla</option>
                 <option>Other</option>
               </select>
             </div>
@@ -104,7 +106,8 @@
                 <option>Bangalore</option>
                 <option>Hyderabad</option>
                 <option>Chennai</option>
-                <option>Thane</option>
+                <option>Pune</option>
+                <option>Ahmedabad</option>
                 <option>Other</option>
               </select>
             </div>
@@ -134,16 +137,20 @@
         </div>
         <ul class="nav nav-tabs">
           <li class="nav-item active">
-            <a class="nav-link" href="#" onclick="showPage('price')">Price</a>
+            <a class="nav-link" href="#" onclick="showPage('price')">Understand From Price</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" onclick="showPage('visual')">Visualization</a>
+            <a class="nav-link" href="#" onclick="showPage('visual')">Understand From Type</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="showPage('map')">Understand From Map</a>
           </li>
         </ul>
         <div class="pages pricePage">
           price page
-          </div>
-          <div class="pages visualPage hidden">
+        </div>
+        <div class="pages visualPage hidden">
+            <h4 style="color:#084081;padding-top:10px;margin-bottom:20px"><b><i>You car belongs to Type <span id="cluster-type">A</span></i></b></h4>
           <div class="chart-wrapper" id="chart-distro1"></div>
           <!--Sorry about all the inline JS. It is a quick way to show what options are available-->
           <div class="chart-options">
@@ -154,17 +161,23 @@
               <button type="button" class="btn btn-secondary" onclick="showBox()">Box Plot</button>
               <!-- <button type="button" class="btn btn-secondary" onclick="showNotched()">Notched Box Plot</button> -->
               <button type="button" class="btn btn-secondary" onclick="showViolin()">Violin Plot Unbound</button>
-              <button type="button" class="btn btn-secondary" onclick="showClamp()">Violin Plot Clamp to Data</button>
-              <button type="button" class="btn btn-secondary" onclick="showBean()">Bean Plot</button>
-              <button type="button" class="btn btn-secondary" onclick="showBeeswarm()">Beeswarm Plot</button>
+              <!-- <button type="button" class="btn btn-secondary" onclick="showClamp()">Violin Plot Clamp to Data</button> -->
+              <!-- <button type="button" class="btn btn-secondary" onclick="showBean()">Bean Plot</button> -->
+              <!-- <button type="button" class="btn btn-secondary" onclick="showBeeswarm()">Beeswarm Plot</button> -->
               <button type="button" class="btn btn-secondary" onclick="showScatter()">Scatter Plot</button>
               <button type="button" class="btn btn-secondary" onclick="showLines()">Trend Lines</button>
             </div>
           </div>
-          <div class="mertic">
-            <ul class="list-group">
+          <div class="fix-panel" id="distrochart-pannel">
+            <ul id="distrochart-pannel-list-group">
             </ul>
           </div>
+        </div>
+
+        <div class="pages mapPage hidden">
+          <h4 style="color:#084081"><b><i>Number of second-hand cars by states in India (listed on carwale)</i></b></h4>
+          <div class="jsmaps-wrapper" id="india-map"></div>
+          <div class="fix-panel" id="state-data-panel"></div>
         </div>
       </div>
     </div>
@@ -177,15 +190,27 @@
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="d3.geo.min.js"></script>
   <script src="distrochart.js" charset="utf-8"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
     crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
     crossorigin="anonymous"></script>
   <script src="script.js"></script>
+  <script src="jsmaps/jsmaps-libs.js" type="text/javascript"></script>
+  <script src="jsmaps/jsmaps-panzoom.js"></script>
+  <script src="jsmaps/jsmaps.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    $(function () {
+      $('#india-map').JSMaps({
+        map: 'india',
+        onStateClick: function(data) {
+          displayStateData(data);
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>

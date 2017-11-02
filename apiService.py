@@ -49,15 +49,13 @@ def get():
     finally:
         conn.close()
 
-@app.route('/test', methods=['GET','POST'])
+@app.route('/predict', methods=['GET','POST'])
 def hello():
     if request.method == 'POST':
         param_json = request.get_json()
-        model = joblib.load('gb2.pkl')
+        model = joblib.load('rf_2.pkl')
         raw_df = pd.DataFrame.from_dict(param_json,orient='index').transpose()
         df = dataClean.clean_post_data(raw_df)
-        print(df)
-        # price = round(np.exp(model.predict(df)[0]),2).astype(str)
         price = str(round(np.exp(model.predict(df)[0]),2))
         return price
     return "Please Send post request"
@@ -65,11 +63,11 @@ def hello():
 @app.route('/getcluster', methods=['GET','POST'])
 def predict():
     if request.method == 'POST':
-        param_json = request.get_json()
-        raw_df = pd.DataFrame.from_dict(param_json,orient='index').transpose()
-        df = dataClean.clean_post_data(raw_df) 
-        model = joblib.load('km_2.pkl')
-        cluster = np.asscalar(model.predict(df)[0])
+        # param_json = request.get_json()
+        # raw_df = pd.DataFrame.from_dict(param_json,orient='index').transpose()
+        # df = dataClean.clean_post_data(raw_df) 
+        # model = joblib.load('svr_2.pkl')
+        # cluster = np.asscalar(model.predict(df)[0])
         # Access database to retrive all data in this cluster 
         return "test"
     return "Please Send post request"          

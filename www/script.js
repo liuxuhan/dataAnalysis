@@ -36,8 +36,7 @@ function predictPrice() {
       console.log(this.responseText);
     }
   };
-  // xhttp.open("GET", "http://127.0.0.1:5002/test", true);
-  xhttp.open("POST", "http://127.0.0.1:5002/test", true);
+  xhttp.open("POST", "http://127.0.0.1:5002/predict", true);
   xhttp.setRequestHeader("Content-Type", "application/json");
   xhttp.send(JSON.stringify(param));
 }
@@ -203,7 +202,7 @@ function creatChart(fileName) {
       yName: 'value',
       axisLabels: {
         xAxis: null,
-        yAxis: 'Values'
+        yAxis: 'Prices'
       },
       selector: "#chart-distro1",
       chartSize: {
@@ -238,4 +237,11 @@ function validate() {
   } else {
     document.getElementById("searchBtn").disabled = true;
   }
+}
+
+var stateData;
+function displayStateData(data){
+  
+  var name = data['name'].toLowerCase().replace(" ","_");
+  console.log(name);
 }

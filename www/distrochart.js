@@ -177,7 +177,7 @@ function makeDistroChart(settings) {
         tooltipString += "<li class='list-group-item'>Q1: " + formatAsFloat(metrics.quartile1) + "</li>";
         tooltipString += "<li class='list-group-item'>Min: " + formatAsFloat(metrics.min) + "</li>";
         return function () {
-            $("div.mertic").html(tooltipString);
+            $("ul#distrochart-pannel-list-group").html(tooltipString);
         };
     }
 
