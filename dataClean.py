@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import sys
-from sklearn import preprocessing
+# from sklearn import preprocessing
 
 
 dropOutColumn = ['CarName', 'MakeId', 'Url', 'FrontImagePath', 'PhotoCount', 'Price', 'Km', 'ModelName', 'VersionName', 'AdditionalFuel',
@@ -20,6 +20,11 @@ def create_dstinct_data():
     df = pd.read_csv('dataCrap/secondHandCar/rawDataCopy.csv')
     print("Before: ",df.shape)
     df = df.drop_duplicates(subset=['ProfileId'], keep='first')
+
+    # remove outlier based on Km
+    df = df[df['KmNumeric'] < 1500000]
+    df = df[df['KmNumeric'] >0]
+
     df.to_csv('raw_data.csv',index=False)
     print("After delete: ",df.shape)
 
@@ -35,10 +40,6 @@ def clean_trainig_data(file_path='raw_data.csv'):
     raw_df.to_csv("useful_data.csv")
 
     raw_df.drop(['ProfileId'], axis=1, inplace=True)
-
-    # remove outlier based on Km
-    raw_df = raw_df[raw_df['KmNumeric'] < 1500000]
-    raw_df = raw_df[raw_df['KmNumeric'] >0]
 
     raw_df = one_hot_encoding(raw_df)
 

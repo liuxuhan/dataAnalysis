@@ -3,7 +3,7 @@ from flask import Flask, request
 from sklearn.externals import joblib
 from flask_restful import Resource, Api
 from sqlalchemy import create_engine
-import json
+import simplejson as json
 from flask.ext.jsonpify import jsonify
 from flask.ext.mysql import MySQL
 from flask_cors import CORS
@@ -70,7 +70,25 @@ def predict():
         # cluster = np.asscalar(model.predict(df)[0])
         # Access database to retrive all data in this cluster 
         return "test"
-    return "Please Send post request"          
+    return "Please Send post request"  
+
+@app.route('/getmapdata', methods=['GET'])
+def getmapdata():
+    mysql.init_app(app)
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    query = "select StateName, count(ProfileId) as number, max(PriceNumeric) as max_price , min(PriceNumeric) as min_price, avg(PriceNumeric) as avg_price, max(KmNumeric) as max_km, min(KmNumeric) as min_km, avg(KmNumeric) as avg_km, max(MakeYear) as max_year, min(MakeYear) as min_year, avg(MakeYear)  as avg_year from raw_car_data group by StateName;"
+    cursor.execute(query)
+    row_headers=[x[0] for x in cursor.description]
+    rows = cursor.fetchall()
+    if rows:
+        result_json=[]
+        for result in rows:
+            result_json.append(dict(zip(row_headers,result)))
+        response = app.response_class(response=json.dumps(result_json,use_decimal=True), status=200, mimetype='application/json')
+        return response
+    return None
+        
 if __name__ == '__main__':
      app.run(port='5002')
      
