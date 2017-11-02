@@ -53,7 +53,7 @@ def get():
 def hello():
     if request.method == 'POST':
         param_json = request.get_json()
-        model = joblib.load('rf_2.pkl')
+        model = joblib.load('./model/rf_2.pkl')
         raw_df = pd.DataFrame.from_dict(param_json,orient='index').transpose()
         df = dataClean.clean_post_data(raw_df)
         price = str(round(np.exp(model.predict(df)[0]),2))
@@ -66,7 +66,7 @@ def predict():
         # param_json = request.get_json()
         # raw_df = pd.DataFrame.from_dict(param_json,orient='index').transpose()
         # df = dataClean.clean_post_data(raw_df) 
-        # model = joblib.load('svr_2.pkl')
+        # model = joblib.load('./model/svr_2.pkl')
         # cluster = np.asscalar(model.predict(df)[0])
         # Access database to retrive all data in this cluster 
         return "test"

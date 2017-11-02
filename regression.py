@@ -34,10 +34,10 @@ if __name__ == "__main__":
     # Normalization . Method is selected based on distribution
     temp['MakeYear'] = temp['MakeYear']/2000
     print(temp.columns)
-    corr = temp.corr()
-    print(corr['PriceNumeric'].sort_values(ascending=False)[:6], '\n')
-    print(corr['PriceNumeric'].sort_values(ascending=False)[-5:])
-    sys.exit()
+    # corr = temp.corr()
+    # print(corr['PriceNumeric'].sort_values(ascending=False)[:6], '\n')
+    # print(corr['PriceNumeric'].sort_values(ascending=False)[-5:])
+    # sys.exit()
 
     X = temp.drop(['PriceNumeric'], axis=1)
     y = np.log(numeric_features.PriceNumeric)
@@ -56,18 +56,19 @@ if __name__ == "__main__":
     svr = svm.SVR(kernel='rbf')
     # GB
     gb = ensemble.GradientBoostingRegressor(
-        n_estimators=500, max_depth=10, loss='ls', learning_rate=0.01)
+        n_estimators=100, max_depth=20, loss='huber', learning_rate=0.07,max_features='auto')
     # random forest
-    rf = ensemble.RandomForestRegressor(n_estimators=200)
+    rf = ensemble.RandomForestRegressor(n_estimators=100)
     # NN
     nn = MLPRegressor(hidden_layer_sizes=64,solver='adam',learning_rate_init=0.05,max_iter=5000,activation='relu')
 
     # Train model
     print(X_train.shape)
-    model =rf.fit(X_train, y_train)
+
+    model = rf.fit(X_train, y_train)
 
     # store model file in server for API
-    joblib.dump(model, 'rf_2.pkl')
+    # joblib.dump(model, './model/rf_2.pkl')
 
     # plot figure to show the regression
     y_pred = model.predict(X_test)

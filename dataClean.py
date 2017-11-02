@@ -89,14 +89,11 @@ def one_hot_encoding(raw_df):
     raw_df['enc_name_other'] = raw_df.RootName.apply(encode_other_name)
 
     # split km to 4 column
-    raw_df["km_1"] = 0
-    raw_df["km_2"] = 0
-    raw_df["km_3"] = 0
-    raw_df["km_4"] = 0
-    raw_df.loc[raw_df['KmNumeric'].between(114274, 1500000, inclusive=True),'km_1'] = 1
-    raw_df.loc[raw_df['KmNumeric'].between(75363, 114273, inclusive=True),'km_2'] = 1
-    raw_df.loc[raw_df['KmNumeric'].between(52215, 75362, inclusive=True),'km_3'] = 1
-    raw_df.loc[raw_df['KmNumeric'].between(250, 52214, inclusive=True),'km_4'] = 1
+    raw_df["km_type"] = 0
+    raw_df.loc[raw_df['KmNumeric'].between(114274, 1500000, inclusive=True),'km_type'] = 1
+    raw_df.loc[raw_df['KmNumeric'].between(75363, 114273, inclusive=True),'km_type'] = 2
+    raw_df.loc[raw_df['KmNumeric'].between(52215, 75362, inclusive=True),'km_type'] = 3
+    raw_df.loc[raw_df['KmNumeric'].between(250, 52214, inclusive=True),'km_type'] = 4
     raw_df.drop(['KmNumeric'],axis=1,inplace=True)
     
     return raw_df
@@ -134,10 +131,7 @@ def clean_post_data(df):
     df['enc_name_etios_liva'] = 0
     df['enc_name_etios_corolla'] = 0
     df['enc_name_other'] = 0
-    df["km_1"] = 0
-    df["km_2"] = 0
-    df["km_3"] = 0
-    df["km_4"] = 0
+    df["km_type"] = 0
     df['MakeYear'] = df['MakeYear'].astype(float)/2000
 
     # normalize km and year
@@ -154,13 +148,13 @@ def clean_post_data(df):
     # change value for certain case
     
     if df['KmNumeric'][0] > 114274:
-        df["km_1"] = 1
+        df["km_type"] = 1
     elif df['KmNumeric'][0] > 75363:
-        df['km_2'] = 1
+        df['km_type'] = 1
     elif df['KmNumeric'][0] > 52215:
-        df['km_3'] = 1
+        df['km_type'] = 1
     else:
-        df['km_4'] = 1
+        df['km_type'] = 1
 
     if df['Seller'][0] == 'Dealer':
         df['enc_seller'] = 1

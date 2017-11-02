@@ -34,7 +34,7 @@ def create_csv_with_label(model):
     car_detail_df.to_csv("car_detail_df.csv",index=False)
 
 def create_model_file(model):
-    joblib.dump(model, 'km_2.pkl')
+    joblib.dump(model, './model/km_2.pkl')
 
 
 if __name__ == "__main__":
