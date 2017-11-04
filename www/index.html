@@ -2,215 +2,213 @@
 <html>
 
 <head>
-  <title>Second Hand Car Price Predictin</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
-    crossorigin="anonymous">
-  <link rel="stylesheet" href="stylesheet.css">
-  <link rel="stylesheet" type="text/css" href="distrochart.css">
-  <link href="jsmaps/jsmaps.css" rel="stylesheet" type="text/css" />
-  <!-- <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+    <title>Used Car Price Predictin</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="distrochart.css">
+    <link href="jsmaps/jsmaps.css" rel="stylesheet" type="text/css" />
+    <!-- <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet" type="text/css" /> -->
 </head>
 
 <body>
-  <div class="banner">
-    <img src="banner.jpg">
-    <h>Car Price Prediction</h>
-  </div>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-3">
-        <form onsubmit="return false">
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="inputKm">KiloMeter(KM)</label>
-              <input onfocusout="validate()" type="number" class="form-control" id="inputKm" placeholder="50000">
+    <div class="banner">
+        <img src="banner.jpg">
+        <h>Price evaluation and analysis for Used Car</h>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3">
+                <form onsubmit="return false">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputKm">Mileage(KM)</label>
+                            <input onfocusout="validate()" type="number" class="form-control" id="inputKm" placeholder="50000">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputYear">Buy year</label>
+                            <input onfocusout="validate()" type="number" class="form-control" id="inputYear" placeholder="2012">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputModel">Car Model</label>
+                            <select id="inputModel" class="form-control">
+                                <option>Innova</option>
+                                <option>Fortuner</option>
+                                <option>Corolla Altis</option>
+                                <option>Etios</option>
+                                <option>Etios Liva</option>
+                                <option>Corolla</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputColor">Color</label>
+                            <select id="inputColor" class="form-control">
+                                <option>Silver</option>
+                                <option>White</option>
+                                <option>Grey</option>
+                                <option>Gold</option>
+                                <option>Black</option>
+                                <option>Blue</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputSell">Sell By</label>
+                            <select id="inputSell" class="form-control">
+                                <option>Dealer</option>
+                                <option>Individual</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputTrans">Transmission</label>
+                            <select id="inputTrans" class="form-control">
+                                <option>Manual</option>
+                                <option>Automatic</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputOwner">Owner Type</label>
+                            <select id="inputOwner" class="form-control">
+                                <option value="1">First Owner</option>
+                                <option value="2">Second Owner</option>
+                                <option value="3">Third/More Owner</option>
+                                <option value="6">Unregistered Car</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputFuel">Fuel</label>
+                            <select id="inputFuel" class="form-control">
+                                <option>Petrol</option>
+                                <option>Diesel</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputCity">City</label>
+                            <select id="inputCity" class="form-control">
+                                <option>New Delhi</option>
+                                <option>Mumbai</option>
+                                <option>Bangalore</option>
+                                <option>Hyderabad</option>
+                                <option>Chennai</option>
+                                <option>Pune</option>
+                                <option>Ahmedabad</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputBody">Body Type</label>
+                            <select id="inputBody" class="form-control">
+                                <option value="6">SUV/MUV</option>
+                                <option value="1">Sedan</option>
+                                <option value="3">HatchBack</option>
+                                <option value="2">Coupe</option>
+                                <option value="4">Minivan</option>
+                                <option value="7">Truck</option>
+                                <option value="5">Convertible</option>
+                                <option value="8">StationWagon</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <button onclick="predictPrice()" id="searchBtn" class="btn btn-primary" style="width: 100%" disabled>Search</button>
+                    </div>
+                    <div class="alert alert-success price hidden" role="alert" style="margin-top: 20px">
+                        Predicted price is ₹
+                        <span id="priceSpan" class="price"></span>
+                    </div>
+                </form>
             </div>
-            <div class="form-group col-md-6">
-              <label for="inputYear">Buy year</label>
-              <input onfocusout="validate()" type="number" class="form-control" id="inputYear" placeholder="2012">
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="inputModel">Car Model</label>
-              <select id="inputModel" class="form-control">
-                <option>Innova</option>
-                <option>Fortuner</option>
-                <option>Corolla Altis</option>
-                <option>Etios</option>
-                <option>Etios Liva</option>
-                <option>Corolla</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div class="form-group col-md-6">
-              <label for="inputColor">Color</label>
-              <select id="inputColor" class="form-control">
-                <option>Silver</option>
-                <option>White</option>
-                <option>Grey</option>
-                <option>Gold</option>
-                <option>Black</option>
-                <option>Blue</option>
-                <option>Other</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="inputSell">Sell By</label>
-              <select id="inputSell" class="form-control">
-                <option>Dealer</option>
-                <option>Individual</option>
-              </select>
-            </div>
-            <div class="form-group col-md-6">
-              <label for="inputTrans">Transmission</label>
-              <select id="inputTrans" class="form-control">
-                <option>Manual</option>
-                <option>Automatic</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="inputOwner">Owner Type</label>
-              <select id="inputOwner" class="form-control">
-                <option value="1">First Owner</option>
-                <option value="2">Second Owner</option>
-                <option value="3">Third/More Owner</option>
-                <option value="6">Unregistered Car</option>
-              </select>
-            </div>
-            <div class="form-group col-md-6">
-              <label for="inputFuel">Fuel</label>
-              <select id="inputFuel" class="form-control">
-                <option>Petrol</option>
-                <option>Diesel</option>
-                <option>Other</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="inputCity">City</label>
-              <select id="inputCity" class="form-control">
-                <option>New Delhi</option>
-                <option>Mumbai</option>
-                <option>Bangalore</option>
-                <option>Hyderabad</option>
-                <option>Chennai</option>
-                <option>Pune</option>
-                <option>Ahmedabad</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div class="form-group col-md-6">
-              <label for="inputBody">Body Type</label>
-              <select id="inputBody" class="form-control">
-                <option value="6">SUV/MUV</option>
-                <option value="1">Sedan</option>
-                <option value="3">HatchBack</option>
-                <option value="2">Coupe</option>
-                <option value="4">Minivan</option>
-                <option value="7">Truck</option>
-                <option value="5">Convertible</option>
-                <option value="8">StationWagon</option>
-              </select>
-            </div>
-          </div>
-          <button onclick="predictPrice()" id="searchBtn" class="btn btn-primary" disabled>Search</button>
-        </form>
-
-
-      </div>
-      <div class="col-sm-9">
-        <div class="alert alert-success hidden price" role="alert">
-          Predicted price is ₹
-          <span id="priceSpan" class="price"></span>
-        </div>
-        <ul class="nav nav-tabs">
-          <li class="nav-item active">
-            <a class="nav-link" href="#" onclick="showPage('price')">Understand From Price</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" onclick="showPage('visual')">Understand From Type</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" onclick="showPage('map')">Understand From Map</a>
-          </li>
-        </ul>
-        <div class="pages pricePage">
-          price page
-        </div>
-        <div class="pages visualPage hidden">
-            <h4 style="color:#084081;padding-top:10px;margin-bottom:20px"><b><i>You car belongs to Type <span id="cluster-type">A</span></i></b></h4>
-          <div class="chart-wrapper" id="chart-distro1"></div>
-          <!--Sorry about all the inline JS. It is a quick way to show what options are available-->
-          <div class="chart-options">
-            <h3 onclick="toggleShow()" class="chart-badge">
+            <div class="col-sm-9">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" onclick="showPage(this,'price')">Chart For Price</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage(this,'visual')">Chart For Model</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage(this,'map')">Chart For Map</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage(this,'year')">Chart For Year</a>
+                    </li>
+                </ul>
+                <div class="pages pricePage">
+                    <div id="gaugeChart" style="width: 600px;height:600px;"></div>
+                </div>
+                <div class="pages visualPage hidden">
+                   <!--  <h4 style="color:#084081;padding-top:10px;margin-bottom:20px"><b><i>Your car belongs to Type <span id="cluster-type">A</span></i></b></h4> -->
+                    <div class="chart-wrapper" id="chart-distro1"></div>
+                    <!--Sorry about all the inline JS. It is a quick way to show what options are available-->
+                  <!--   <div class="chart-options">
+                        <h3 onclick="toggleShow()" class="chart-badge">
               <span class="badge badge-success single">Show all:</span>
             </h3>
-            <div class="btn-group btn-group-sm hidden" role="group" aria-label="Basic example">
-              <button type="button" class="btn btn-secondary" onclick="showBox()">Box Plot</button>
-              <!-- <button type="button" class="btn btn-secondary" onclick="showNotched()">Notched Box Plot</button> -->
-              <button type="button" class="btn btn-secondary" onclick="showViolin()">Violin Plot Unbound</button>
-              <!-- <button type="button" class="btn btn-secondary" onclick="showClamp()">Violin Plot Clamp to Data</button> -->
-              <!-- <button type="button" class="btn btn-secondary" onclick="showBean()">Bean Plot</button> -->
-              <!-- <button type="button" class="btn btn-secondary" onclick="showBeeswarm()">Beeswarm Plot</button> -->
-              <button type="button" class="btn btn-secondary" onclick="showScatter()">Scatter Plot</button>
-              <button type="button" class="btn btn-secondary" onclick="showLines()">Trend Lines</button>
+                        <div class="btn-group btn-group-sm hidden" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-secondary" onclick="showBox()">Box Plot</button>
+                            <button type="button" class="btn btn-secondary" onclick="showNotched()">Notched Box Plot</button>
+                            <button type="button" class="btn btn-secondary" onclick="showViolin()">Violin Plot Unbound</button>
+                            <button type="button" class="btn btn-secondary" onclick="showClamp()">Violin Plot Clamp to Data</button>
+                            <button type="button" class="btn btn-secondary" onclick="showBean()">Bean Plot</button>
+                            <button type="button" class="btn btn-secondary" onclick="showBeeswarm()">Beeswarm Plot</button>
+                            <button type="button" class="btn btn-secondary" onclick="showScatter()">Scatter Plot</button>
+                            <button type="button" class="btn btn-secondary" onclick="showLines()">Trend Lines</button>
+                        </div>
+                    </div>
+                    <div class="fix-panel" id="distrochart-pannel">
+                        <ul id="distrochart-pannel-list-group">
+                        </ul>
+                    </div> -->
+                </div>
+                <div class="pages mapPage hidden">
+                    <h4 style="color:#084081"><b><i>Number of second-hand cars by states in India (listed on carwale)</i></b></h4>
+                    <div class="map-container">
+                        <div class="jsmaps-wrapper" id="india-map"></div>
+                        <div class="fix-panel" id="state-data-panel">
+                            <ul id="map-pannel-list-group">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="pages yearPage hidden"><div id="chart-year"></div></div>
             </div>
-          </div>
-          <div class="fix-panel" id="distrochart-pannel">
-            <ul id="distrochart-pannel-list-group">
-            </ul>
-          </div>
         </div>
-
-        <div class="pages mapPage hidden">
-          <h4 style="color:#084081"><b><i>Number of second-hand cars by states in India (listed on carwale)</i></b></h4>
-          <div class="jsmaps-wrapper" id="india-map"></div>
-          <div class="fix-panel" id="state-data-panel"></div>
-        </div>
-      </div>
     </div>
-
-  </div>
-
-
-
-
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-  <script type="text/javascript" src="d3.geo.min.js"></script>
-  <script src="distrochart.js" charset="utf-8"></script>
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
-    crossorigin="anonymous"></script>
-  <script src="script.js"></script>
-  <script src="jsmaps/jsmaps-libs.js" type="text/javascript"></script>
-  <script src="jsmaps/jsmaps-panzoom.js"></script>
-  <script src="jsmaps/jsmaps.min.js" type="text/javascript"></script>
-  <script type="text/javascript">
-    $(function () {
-      $('#india-map').JSMaps({
-        map: 'india',
-        onStateClick: function(data) {
-          displayStateData(data);
-        }
-      });
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="distrochart.js" charset="utf-8"></script>
+    <script src="echarts.js"></script>
+    <script src="dataTool.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <script src="jsmaps/jsmaps-libs.js" type="text/javascript"></script>
+    <script src="jsmaps/jsmaps-panzoom.js"></script>
+    <script src="jsmaps/jsmaps.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(function() {
+        $('#india-map').JSMaps({
+            map: 'india',
+            onStateClick: function(data) {
+                displayStateData(data);
+            }
+        });
     });
-  </script>
+    </script>
 </body>
 
 </html>

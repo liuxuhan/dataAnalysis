@@ -2,8 +2,6 @@ window.JSMaps.maps.india = {
 	"config": {
 		"mapWidth": 611.86,
 		"mapHeight": 690.525,
-		// "abbreviationColor" : '#f2f2f2',
-		// "abbreviationFontSize" : 20,
 		"displayAbbreviations" : false,
 		"stateClickAction" : "none"
 	},
@@ -23,7 +21,7 @@ window.JSMaps.maps.india = {
 		},
 		{
 			"enable": true,
-			"name": "Andhra Pradesh",
+			"name": "Andhra Pradesh<br/>Amount: 28",
 			"abbreviation": "AP",
 			"textX": 220,
 			"textY": 520,
@@ -49,7 +47,7 @@ window.JSMaps.maps.india = {
 		},
 		{
 			"enable": true,
-			"name": "Assam",
+			"name": "Assam<br/>Amount: 5",
 			"abbreviation": "AS",
 			"textX": 520,
 			"textY": 265,
@@ -62,7 +60,7 @@ window.JSMaps.maps.india = {
 		},
 		{
 			"enable": true,
-			"name": "Bihar",
+			"name": "Bihar<br/>Amount: 13",
 			"abbreviation": "BR",
 			"textX": 371,
 			"textY": 278,
@@ -75,7 +73,7 @@ window.JSMaps.maps.india = {
 		},
 		{
 			"enable": true,
-			"name": "Chandigarh",
+			"name": "Chandigarh<br/>Amount: 26",
 			"abbreviation": "CH",
 			"textX": 63,
 			"textY": 238,
@@ -88,7 +86,7 @@ window.JSMaps.maps.india = {
 		},
 		{
 			"enable": true,
-			"name": "Chhattisgarh",
+			"name": "Chhattisgarh<br/>Amount: 24",
 			"abbreviation": "CT",
 			"textX": 286,
 			"textY": 372,
@@ -114,7 +112,7 @@ window.JSMaps.maps.india = {
 		},
 		{
 			"enable": true,
-			"name": "Delhi",
+			"name": "Delhi<br/>Amount: 650",
 			"abbreviation": "DL",
 			"textX": 283,
 			"textY": 195,
@@ -140,7 +138,7 @@ window.JSMaps.maps.india = {
 		},
 		{
 			"enable": true,
-			"name": "Goa",
+			"name": "Goa<br/>Amount: 4",
 			"abbreviation": "GA",
 			"textX": 87,
 			"textY": 515,
@@ -153,7 +151,7 @@ window.JSMaps.maps.india = {
 		},
 		{
 			"enable": true,
-			"name": "Gujarat",
+			"name": "Gujarat<br/>Amount: 201",
 			"abbreviation": "GJ",
 			"textX": 72,
 			"textY": 340,
@@ -166,7 +164,7 @@ window.JSMaps.maps.india = {
 		},
 		{
 			"enable": true,
-			"name": "Himachal Pradesh",
+			"name": "Himachal Pradesh<br/>Amount: 3",
 			"abbreviation": "HP",
 			"textX": 190,
 			"textY": 130,
@@ -179,7 +177,7 @@ window.JSMaps.maps.india = {
 		},
 		{
 			"enable": true,
-			"name": "Haryana",
+			"name": "Haryana<br/>Amount: 110",
 			"abbreviation": "HR",
 			"textX": 170,
 			"textY": 198,
@@ -192,7 +190,7 @@ window.JSMaps.maps.india = {
 		},
 		{
 			"enable": true,
-			"name": "Jharkhand",
+			"name": "Jharkhand<br/>Amount: 5",
 			"abbreviation": "JH",
 			"textX": 351,
 			"textY": 328,
@@ -205,7 +203,7 @@ window.JSMaps.maps.india = {
 		},
 		{
 			"enable": true,
-			"name": "Jammu and Kashmir",
+			"name": "Jammu & Kashmir<br/>Amount: 3",
 			"abbreviation": "JK",
 			"textX": 174,
 			"textY": 68,
@@ -218,7 +216,7 @@ window.JSMaps.maps.india = {
 		},
 		{
 			"enable": true,
-			"name": "Karnataka",
+			"name": "Karnataka<br/>Amount: 384",
 			"abbreviation": "KA",
 			"textX": 157,
 			"textY": 526,
@@ -231,7 +229,7 @@ window.JSMaps.maps.india = {
 		},
 		{
 			"enable": true,
-			"name": "Kerala",
+			"name": "Kerala<br/>Amount: 53",
 			"abbreviation": "KL",
 			"textX": 171,
 			"textY": 608,
@@ -257,7 +255,7 @@ window.JSMaps.maps.india = {
 		},
 		{
 			"enable": true,
-			"name": "Maharashtra",
+			"name": "Maharashtra<br/>Amount: 822",
 			"abbreviation": "MH",
 			"textX": 154,
 			"textY": 419,
@@ -270,7 +268,7 @@ window.JSMaps.maps.india = {
 		},
 		{
 			"enable": true,
-			"name": "Meghalaya",
+			"name": "Meghalaya<br/>Amount: 1",
 			"abbreviation": "ML",
 			"textX": 470,
 			"textY": 282,
@@ -296,7 +294,7 @@ window.JSMaps.maps.india = {
 		},
 		{
 			"enable": true,
-			"name": "Madhya Pradesh",
+			"name": "Madhya Pradesh<br/>Amount: 71",
 			"abbreviation": "MP",
 			"textX": 216,
 			"textY": 338,
@@ -335,7 +333,7 @@ window.JSMaps.maps.india = {
 		},
 		{
 			"enable": false,
-			"name": "Orissa",
+			"name": "Orissa<br/>Amount: 14",
 			"abbreviation": "OR",
 			"textX": 345,
 			"textY": 390,
@@ -348,7 +346,7 @@ window.JSMaps.maps.india = {
 		},
 		{
 			"enable": true,
-			"name": "Punjab",
+			"name": "Punjab<br/>Amount: 64",
 			"abbreviation": "PB",
 			"textX": 152,
 			"textY": 158,
@@ -374,7 +372,7 @@ window.JSMaps.maps.india = {
 		},
 		{
 			"enable": true,
-			"name": "Rajasthan",
+			"name": "Rajasthan<br/>Amount: 47",
 			"abbreviation": "RJ",
 			"textX": 119,
 			"textY": 257,
@@ -400,7 +398,7 @@ window.JSMaps.maps.india = {
 		},
 		{
 			"enable": true,
-			"name": "Telangana",
+			"name": "Telangana<br/>Amount: 300",
 			"abbreviation": "TG",
 			"textX": 226,
 			"textY": 452,
@@ -413,7 +411,7 @@ window.JSMaps.maps.india = {
 		},
 		{
 			"enable": true,
-			"name": "Tamil Nadu",
+			"name": "Tamil Nadu<br/>Amount: 265",
 			"abbreviation": "TN",
 			"textX": 212,
 			"textY": 600,
@@ -439,7 +437,7 @@ window.JSMaps.maps.india = {
 		},
 		{
 			"enable": true,
-			"name": "Uttar Pradesh",
+			"name": "Uttar Pradesh<br/>Amount: 228",
 			"abbreviation": "UP",
 			"textX": 260,
 			"textY": 250,
@@ -452,7 +450,7 @@ window.JSMaps.maps.india = {
 		},
 		{
 			"enable": false,
-			"name": "Uttarakhand",
+			"name": "Uttaranchal<br/>Amount: 14",
 			"abbreviation": "UT",
 			"textX": 228,
 			"textY": 174,
@@ -465,7 +463,7 @@ window.JSMaps.maps.india = {
 		},
 		{
 			"enable": true,
-			"name": "West Bengal",
+			"name": "West Bengal<br/>Amount: 87",
 			"abbreviation": "WB",
 			"textX": 408,
 			"textY": 337,
