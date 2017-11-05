@@ -65,7 +65,6 @@ def one_hot_encoding(raw_df):
     raw_df['enc_color_other'] = raw_df.Color.apply(encode_other_color)
 
     # city
-    raw_df['enc_color_other'] = raw_df.Color.apply(encode_other_color)
     raw_df['enc_city_new_delhi'] = pd.get_dummies(raw_df.CityName)['New Delhi']
     raw_df['enc_city_mumbai'] = pd.get_dummies(raw_df.CityName)['Mumbai']
     raw_df['enc_city_bangalore'] = pd.get_dummies(raw_df.CityName)['Bangalore']
